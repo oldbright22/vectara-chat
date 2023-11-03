@@ -1,5 +1,8 @@
 #This is a vectara example
 
+#added
+from unittest import TestLoader
+
 import streamlit as st 
 #from langchain.document_loaders import TextLoader
 from langchain.embeddings import OpenAIEmbeddings
@@ -20,7 +23,7 @@ VECTARA_API_KEY = os.getenv('VECTARA_API_KEY')
 
 
 def langchain_func(file, question):
-    loader = TextLoader(file, encoding='utf8')
+    loader = TestLoader(file, encoding='utf8')
     documents = loader.load()
     vectara = Vectara.from_documents(documents, embedding=None)
     qa = RetrievalQA.from_llm(llm=OpenAI(), retriever = vectara.as_retriever())
@@ -30,7 +33,7 @@ def langchain_func(file, question):
 ###
 # Streamlit Code
 ###
-st.title("Ask OMNEST / OMNeT++ Documentation Here")
+st.title("Ask Lulu / Lulu++ Documentation Here")
 
 def process_question(question):
     # This is a placeholder function. You can replace it with your processing logic.
