@@ -7,6 +7,7 @@ import os
 from colorama import Fore
 import openai
 from dotenv import load_dotenv
+
 # Using Streamlit's caching mechanism to load environment variables and keep them in memory
 @st.cache(allow_output_mutation=True)
 def load_env_vars():
